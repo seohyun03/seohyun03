@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .tabs {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            padding: 10px;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-left: 3px solid transparent;
+            background-color: #f2f2f2;
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-left: 3px solid #0056b3;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h1, h2 {
+            color: #0056b3;
+            text-align: center;
+        }
+        /* 이미지 둥글게 스타일 */
+        .profile-image {
+            width: 150px;
+            height: auto; /* 자동 높이 설정 */
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+            object-fit: cover; /* 이미지가 찌그러지지 않고 중앙에 맞춰짐 */
+        }
+        .cv-link {
+            font-size: 1.1em;
+        }
+
+        /* Add spacing between project items */
+        .project-list > li {
+            margin-bottom: 20px; /* Adjust as needed for desired spacing */
+        }
+
+        /* Add top margin between main bullet and nested list */
+        .project-list > li > ul {
+            margin-top: 10px; /* Adjust as needed for top spacing */
+        }
+        
+        /* Optional: Add spacing for other lists if needed */
+        .hackathon-list > li, .education-list > li {
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+    </style>
+    <script>
+        function openTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add("active");
+        }
+    </script>
+</head>
+<body>
+    <!-- Vertical Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('home')">Home</div>
+        <div class="tab" onclick="openTab('projects-activities')">Projects & Activities</div>
+        <div class="tab" onclick="openTab('extracurricular')">Extracurricular Activities</div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <!-- Home Tab Content -->
+        <div id="home" class="tab-content active", style="text-align: center;">
+            <h1 style="margin-bottom: 20px;">Seohun Kim</h1>
+            <img src="seohyunprofile.jpg" alt="Your Photo" class="profile-image">
+
+            <h2 style="margin-bottom: 30px;">About Me</h2>
+            <p>Recently, I’ve become quite obsessed with meditation, Pilates, and cooking.<br>
+                These interests not only help me unwind but also bring fresh energy and focus to my academic work.</p>
+            
+            <h2 style="margin-top: 30px; margin-bottom: 20px;">Contact</h2>
+            <p>Email (school): <a href="mailto:seohyun03@hanyang.ac.kr">seohyun03@hanyang.ac.kr</a></p>
+            <p>Email (personal): <a href="mailto:dorothy5018@gmail.com">dorothy5018@gmail.com</a></p>
+
+            <h2 style="margin-top: 30px; margin-bottom: 20px;">Education</h2>
+            <p style="margin-bottom: 30px;">
+                <strong>B.A in Library and Information Science</strong><br>
+                Myongji University (Seoul, South Korea)<br>
+                Minor: Business Administration
+            </p>
+            <p style="margin-bottom: 30px;"></p>
+                <strong>M.S in Business Informatics</strong><br>
+                Hanyang University (Seoul, South Korea)<br>
+                Research Lab: Business Intelligence and Strategy Lab
+            </p>
+
+            <h2 style="margin-top: 30px;">Publications</h2>
+            <ul style="list-style-type: none; padding: 0; margin-bottom: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <strong>“Study of Image Deep Learning Depending on Recognition of Color”</strong><br>
+                    Seohyun Kim and Misoo Shin<br>
+                    Preparing for submission to <em>Journal of the Association for Information systems</em>, Expected submission Nov 2024
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>“Analyzing the Influence of Payment Models and Visual Elements on the Success of Open World Adventure Games: An Empirical Approach”</strong><br>
+                    Seohyun Kim, Jungun Moon, Seongho Cho, and Misoo Shin<br>
+                    <em>Journal of Information Technology Services</em> (Under review)
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>“Comparative Analysis of Metaverse Research Trends and Public Perception using Topic Modeling”</strong><br>
+                    Seohyun Kim, Seongho Cho, and Misoo Shin<br>
+                    <em>Journal of the Korean Operations Research and Management Science Society</em>, 48.3(2023): 41-53
+                </li>
+            </ul>
+
+            <!-- Conference Section -->
+            <h2 style="margin-top: 30px;">Conferences</h2>
+            <ul style="list-style-type: none; padding: 0; margin-bottom: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <strong>“Analyzing the Influence of Payment Models and Visual Elements on the Success of Open World 
+                        Adventure Games: An Empirical Approach”</strong><br>
+                    Seohyun Kim, Jungun Moon, Seongho Cho<br>
+                    Presented at the 25th International Conference on Electronic Commerce, and Korean Society of IT services 2024 
+                    Spring Joint Conference, 2024
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>“Comparative Analysis of Metaverse Research Trends and Public Perception using Topic Modeling”</strong><br>
+                    Seohyun Kim and Seongho Cho<br>
+                    Presented at the Joint Conference of the Korean Institute of Industrial Engineering, and the Korean Society of 
+                    Management Science Spring 2023, 2023
+                </li>
+            </ul>
+
+
+            <!-- CV Download Section -->
+            <h2 style="margin-top: 30px; margin-bottom: 20px;">Curriculum Vitae (CV)</h2>
+            <p class="cv-link"><a href="Seohyun Kim_CV.pdf" download>Download CV</a></p>
+        </div>
+
+        <!-- Projects & Activities Tab Content -->
+        <div id="projects-activities" class="tab-content">
+            <h2>Projects & Activities</h2>
+            
+            <!-- Projects Section -->
+            <h3>Projects</h3>
+            <ul class="project-list">
+                <!-- 1st Project -->
+                <li>
+                    <strong>KT Alley Economy Project (OCT 2022 - JAN 2023):</strong> 
+                    Suggested solutions and strategies to help small business owners increase profits by analyzing various data sources.
+                    <ul>
+                        <li>Analyzed floating population, regional sales, and commercial districts using KT’s proprietary programs.</li>
+                        <li>Implemented Latent Dirichlet Allocation (LDA) to examine social media data from platforms like Instagram and Brunch.</li>
+                        <li>Provided actionable insights on holiday promotions, delivery services, and new menu categories based on data analysis results.</li>
+                    </ul>
+                </li>
+
+                <!-- 2nd Project -->
+                <li>
+                    <strong>Quality Error Prediction Analysis Model for Defect Prevention (JUL 2022 - DEC 2022):</strong> The preemptive detection of melting tank error
+                    <ul>
+                        <li>Researched on papers relevant to defects in the dissolution process and particle dissolution.</li>
+                        <li>Participated in data processing and visualization.</li>
+                        <li>Cooperated with utilize DNN to classification analysis with Tensorflow2 and GAN to predict future 
+                            data distribution .</li>
+                        <li>Prepared presentation materials and reports of the project </li>
+                    </ul>
+                </li>
+
+                <!-- 3rd project -->
+                <li>
+                    <strong>Lpay Activation and Marketing Strategy Based on Machine Learning (MAY 2022 - AUG 2022):</strong> Development of Lpay customer activation by customized marketing strategies depending on the 
+                    characteristics of each customer group
+                    <ul>
+                        <li>Participated in data visualization and developing customer segmentation model by XGBoost 
+                            Classifier .</li>
+                        <li>Suggested marketing strategies and events based on the penchant of cohort .</li>
+                    </ul>
+                </li>
+            </ul>
+
+            
+            <!-- Hackathons Section -->
+            <h3>Hackathons</h3>
+            <ul class="hackathon-list">
+                <li>
+                    <strong>Sentence Type Classification AI Competition (DEC 2022)</strong>
+                    <ul>
+                        <li>Public LB 74th, Private LB 38th out of 356 participants, ranked in the top 11%</li>
+                        <li>Technologies used: Data preprocessing, Utilized BERTClassifier</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>2022 Tourism Data AI Competition (OCT 2022)</strong>
+                    <ul>
+                        <li>Public LB 74th, Private LB 38th out of 356 participants, ranked in the top 11%</li>
+                        <li>Technologies used: Utilized Tfidfvectorizer, Truncated SVD  to deal with text columns</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Travel Product Application Prediction (AUG 2022 - SEP 2022)</strong>
+                    <ul>
+                        <li>Public LB 74th, Private LB 38th out of 356 participants, ranked in the top 11%</li>
+                        <li>Technologies used: Data preprocessing, Created derived variables, Utilized Staking with XGBClassifier, CatBoostClassifier, LGBMClassifier</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>AI Competition for Predicting Antenna Performance of Self-Driving Sensors (AUG 2022) </strong>
+                    <ul>
+                        <li>Public LB 115th, Private LB 130th / 975, ranked in the top13%</li>
+                        <li>Data preprocessing, Created derived variables, Utilized Staking with XGBRegressor, CatBoostRegressor, LGBMRegressor</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Forecasting Sales by Shopping Mall Branch (JUL 2022 - AUG 2022)</strong>
+                    <ul>
+                        <li>Public LB 73rd, Private LB 74th / 1198, ranked in the top6% </li>
+                        <li>Data preprocessing, Created derived variables, Utilized CatBoostRegressor</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Population Data-Based Income Prediction (APR 04 - APR 2022)</strong>
+                    <ul>
+                        <li>Public LB 73rd, Private LB 74th / 1198, ranked in the top6% </li>
+                        <li>Data preprocessing, Created derived variables, Utilized CatBoostClassifier</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Additional Education Section -->
+            <h3>Additional Education</h3>
+            <ul class="education-list">
+                <li><strong>Calculus1: </strong> 
+                    <br>
+                    <img src="calculus1.png" alt="Course Image" style="width:400px; height:auto; margin-top:5px; margin-bottom:5px;">
+                    <br>
+                    Basic concepts of calculus & sequence and series</li>
+                <li><strong>Linear Algebra:</strong> 
+                    <br>
+                    <img src="linear algebra.png" alt="Course Image" style="width:400px; height:auto; margin-top:5px; margin-bottom:5px;">
+                    <br>
+                    Linear relationships and transformations in space using vectors and matrices </li>
+            </ul>
+        </div>
+
+        <!-- Extracurricular Activities Tab Content -->
+        <div id="extracurricular" class="tab-content">
+            <h2>Extracurricular Activities</h2>
+            
+            <h3>Undergraduate</h3>
+            <ul class="project-list">
+                <li>
+                    <strong>Startup Project Reborn | FEB 2016 - AUG 2017</strong>
+                    <ul>
+                        <li>Planning and Producing Travel Content for Foreign Tourists</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Samsung Group University Student Supporters | JUL 2022 - AUG 2022</strong>
+                    <ul>
+                        <li>Planning and Proposing Online Marketing Strategies for University Students</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Samsung Group University Student Supporters | JUL 2022 - AUG 2022</strong>
+                    <ul>
+                        <li>Planning and Proposing Online Marketing Strategies for University Students</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Club Dreamforest | JUL 2022 - AUG 2022</strong>
+                    <ul>
+                        <li>Official Blog Administrator, Networking Event "Making Real Buddy in Korea" Staff and Program Facilitator</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Graduate</h3>
+            <ul class="project-list">
+                <li>Leader in Study Sessions in Business Inteligence and Strategy Lab (2022)</li>
+                <li>Teaching Assistant at Hanyang University Law School (2022)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

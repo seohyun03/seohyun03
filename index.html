@@ -81,6 +81,30 @@
         width: 100%; /* 화면 크기에 따라 자동 조정 */
         padding: 20px;
         }
+        /* 기본 사이드바 스타일 */
+        .sidebar {
+            width: 250px; /* 기본 너비 */
+            /* 여기에 사이드바의 다른 스타일을 추가하세요 */
+        }
+
+        /* 화면 크기가 768px 이하일 때 적용되는 스타일 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px; /* 줄어든 너비 */
+            }
+        }
+
+        /* 모바일 환경일 때 더 줄이거나 숨기기 */
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 100px; /* 모바일에 맞춘 너비 */
+            }
+        }
+        @media (max-width: 768px) {
+            .content {
+                margin-bottom: 30px; /* 작은 화면에서는 더 넉넉한 여백 */
+            }
+        }
     </style>
     <script>
         function openTab(tabName) {

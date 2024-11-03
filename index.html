@@ -39,6 +39,12 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
+            margin-bottom: 40px; 
+        }
+        @media (max-width: 768px) {
+            .content {
+                margin-bottom: 20px; /* 작은 화면에서는 줄어든 여백 */
+            }
         }
         .tab-content {
             display: none;
@@ -100,11 +106,7 @@
                 width: 100px; /* 모바일에 맞춘 너비 */
             }
         }
-        @media (max-width: 768px) {
-            .content {
-                margin-bottom: 30px; /* 작은 화면에서는 더 넉넉한 여백 */
-            }
-        }
+        
     </style>
     <script>
         function openTab(tabName) {

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            width: auto;
+            padding: 0;
+            border-bottom: 1px solid #ddd;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-bottom: 3px solid transparent;
+            background-color: #f2f2f2;
+            margin-bottom: 0;
+            transition: 0.3s;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 3px solid #0056b3;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 40px; 
+        }
+        @media (max-width: 768px) {
+            .content {
+                margin-bottom: 20px; /* 작은 화면에서는 줄어든 여백 */
+            }
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h1, h2 {
+            color: #0056b3;
+            text-align: center;
+        }
+        /* 이미지 둥글게 스타일 */
+        .profile-image {
+            width: 150px;
+            height: auto; /* 자동 높이 설정 */
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+            object-fit: cover; /* 이미지가 찌그러지지 않고 중앙에 맞춰짐 */
+        }
+        .cv-link {
+            font-size: 1.1em;
+        }
+
+        /* Add spacing between project items */
+        .project-list > li {
+            margin-bottom: 20px; /* Adjust as needed for desired spacing */
+        }
+
+        /* Add top margin between main bullet and nested list */
+        .project-list > li > ul {
+            margin-top: 10px; /* Adjust as needed for top spacing */
+        }
+        
+        /* Optional: Add spacing for other lists if needed */
+        .hackathon-list > li, .education-list > li {
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+        .container {
+        width: 100%; /* 화면 크기에 따라 자동 조정 */
+        padding: 20px;
+        }
+        /* 기본 사이드바 스타일 */
+        .sidebar {
+            width: 250px; /* 기본 너비 */
+            /* 여기에 사이드바의 다른 스타일을 추가하세요 */
+        }
+        .box-list {
+        border: 1px solid transparent; /* 네모 박스 테두리 */
+        padding: 10px;          /* 내용물과 박스 테두리 간의 여백 */
+        width: 600px;           /* 박스 너비 */
+        margin: 10px auto 20px auto;      /* 페이지 가운데 정렬 (수평) */
+        text-align: left;       /* 텍스트 왼쪽 정렬 */ 
+        list-style-type: disc;
+        padding-left: 20px;
+        }
+        
+
+        /* 화면 크기가 768px 이하일 때 적용되는 스타일 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px; /* 줄어든 너비 */
+            }
+        }
+
+        /* 모바일 환경일 때 더 줄이거나 숨기기 */
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 100px; /* 모바일에 맞춘 너비 */
+            }
+        }
+        
+    </style>
+    <script>
+        function openTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add("active");
+        }
+    </script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4STHW3FEY9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+   // Measurement ID 추가
+  gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true }); /*IP 익명화 활성화*/ 
+</script>
+<body>
+    <!-- Vertical Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('home')">Home</div>
+        <div class="tab" onclick="openTab('projects-activities')">Projects & Activities</div>
+        <div class="tab" onclick="openTab('extracurricular')">Extracurricular Activities</div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <!-- Home Tab Content -->
+        <div id="home" class="tab-content active", style="text-align: center;">
+            <h1 style="margin-bottom: 20px;">Seohyun Kim</h1>
+            <img src="seohyunprofile.jpg" alt="Your Photo" class="profile-image">
+
+            <h2 style="margin-bottom: 10px;">About Me</h2>
+            <p>
+                I grew up in a small rural city in South Korea, where my academic interests were first sparked in an isolated environment.<br> 
+                Over time, this foundation has evolved into a strong focus on <Strong>Statistical Inference, Computational Statistics, Machine Learning, and Large Language Model</Strong>.<br>
+                Recently, I've also become passionate about Pilates, yoga, meditation, and coffee — hobbies that both inspire and energize my research.
+            </p>
+            
+            <h2 style="margin-top: 30px; margin-bottom: 20px;">Contact</h2>
+            <p>Email (school): <a href="mailto:seohyun03@hanyang.ac.kr">seohyun03@hanyang.ac.kr</a></p>
+            <p>Email (personal): <a href="mailto:dorothy5018@gmail.com">dorothy5018@gmail.com</a></p>
+
+            <h2 style="margin-top: 30px; margin-bottom: 20px;">Education</h2>
+            <p style="margin-bottom: 30px;">
+                <strong>M.S in Business Informatics </strong> (SEP 2021 - AUG 2023)<br>
+                Hanyang University (Seoul, South Korea)<br>
+                Research Lab: <strong>Business Intelligence and Strategy Lab</strong><br>
+                Dissertation: A Study on the User Evaluation Prediction of UI Design. 
+            </p>
+            <p style="margin-bottom: 30px;"></p>
+                <strong>B.A in Library Science </strong> (MAR 2014 - AUG 2019)<br>
+                Myongji University (Seoul, South Korea)<br>
+                Major: Library and Information Science<br>
+                Minor: Business Administration
+            </p>
+
+            <h2 style="margin-top: 30px;">Publications</h2>
+            <ul style="list-style-type: none; padding: 0; margin-bottom: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <strong>"Exploring Webpage Aesthetic Perception Among Users: A Color-Centric Approach”</strong><br>
+                    <strong>Seohyun Kim</strong> and Misoo Shin.<br>
+                    Preparing for submission to <em>Journal of the Association for Information systems</em><br>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>“Analyzing the Influence of Payment Models and Visual Elements on the Success of Open World Adventure Games: An Empirical Approach”</strong><br>
+                    <strong>Seohyun Kim</strong>, Jungun Moon, Seongho Cho, and Misoo Shin.<br>
+                    <em>Journal of Information Technology Services</em> (Under review)<br>
+                    - Methodology: EfficientNet, XGBoost
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong><a href="https://www.riss.kr/link?id=A108737183" target="_blank">“Comparative Analysis of Metaverse Research Trends and Public Opinion: Using Topic Modeling algorithm”</a></strong><br>
+                    <strong>Seohyun Kim</strong>, Seongho Cho, and Misoo Shin (2023).<br>
+                    <em>Journal of the Korean Operations Research and Management Science Society</em>, 48(3), 41-53.<br>
+                    - Methodology: BERTopic, Umap, HDBSCAN, LDA 
+                </li>
+            </ul>
+
+            <!-- Conference Section -->
+            <h2 style="margin-top: 30px;">Conferences</h2>
+            <ul style="list-style-type: none; padding: 0; margin-bottom: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <strong><a href="https://www.itservice.or.kr/conference02_view03.html?code=198&page=1" target="_blank">“Analyzing the Influence of Payment Models and Visual Elements on the Success of Open World 
+                        Adventure Games: An Empirical Approach”</a></strong><br>
+                    Seohyun Kim, Jungun Moon, Seongho Cho<br>
+                    Presented at the 25th International Conference on Electronic Commerce, and Korean Society of IT services 2024 
+                    Spring Joint Conference, 2024, Seoul
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11475540" target="_blank">“Comparative Analysis of Metaverse Research Trends and Public Perception using Topic Modeling”</a></strong><br>
+                    Seohyun Kim and Seongho Cho<br>
+                    Presented at the Joint Conference of the Korean Institute of Industrial Engineering, and the Korean Society of 
+                    Management Science Spring 2023, 2023, Seoul
+                </li>
+            </ul>
+
+            <!-- Work Experience Section -->
+            <h2 style="margin-top: 30px;">Work Experience</h2>
+            <strong>Research Scientist</strong> at EDEN T&S (DEC 2023 - MAR 2024)<br>
+            <p style="margin-bottom: 30px;">
+                - Developed and implemented advanced OCR(Optical Character Recognition) solutions, enhancing data extraction and accuracy.<br>
+                - Designed and created comprehensive training and testing datasets for OCR systems.<br>
+                - Authored comprehensive onboarding guides for new employees.<br>
+            </p>
+            <strong>Teaching Assistant</strong> at Hanyang University Law School (MAR 2022 - FEB 2023)<br>
+            <p style="margin-bottom: 30px;">   
+                - Prepared educational materials and sourced relevant texts for courses. <br>
+                - Assisted in grading assignments and exams to support instructional goals. <br>
+            </p>
+            <strong>Intern Librarian</strong> at Asia Library, Harlan Hatcher Graduate Library, University of Michigan (FEB 2020 - DEC 2020)<br>
+            <p style="margin-bottom: 30px;"> 
+                - Acquisition, Cataloguing of materials related to Korean studies.<br>
+                - Implemented data standardization in the Deep Blue Repositories project. <br>
+                - Participated in the collection project ‘Seoul 1969: Photographs by a Peace Corps Volunteer’.<br>
+                - Organized and led weekly meetings for interns in other universities’ libraries to improve comprehension of tasks.<br>
+            </p>
+
+            <!-- Awards & Scholarships Section -->
+            <h2 style="margin-top: 30px;">Awards & Scholarships </h2>
+            <ul style="list-style-type: none; padding: 0; margin-bottom: 20px;">
+                <li style="margin-bottom: 20px;">
+                    Excellence Prize: 2022 The 2nd K-AI Manufacturing Data Analysis Contest (DEC 2022)</li>
+                <li style="margin-bottom: 20px;">
+                    Globalism Scholarship (SEP 2018)</li>
+                <li style="margin-bottom: 20px;">
+                    President’s Special Scholarship (MAY 2017)</li>
+                <li style="margin-bottom: 20px;">
+                    President’s Special Scholarship (SEP 2015)</li>
+                <li style="margin-bottom: 20px;">
+                    President’s Special Scholarship (MAR 2015)</li>
+                <li style="margin-bottom: 20px;">
+                    Academic Excellence Scholarship (SEP 2014)<br><br></li>
+            </ul>
+
+            <!-- CV Download Section -->
+            <h2 style="margin-bottom: 15px;">Curriculum Vitae (CV)</h2>
+            <p class="cv-link" style="margin-bottom: 30px;">
+                <a href="Seohyun Kim_CV.pdf" download>Download CV</a>
+            </p>
+        </div>
+
+        <!-- Projects & Activities Tab Content -->
+        <div id="projects-activities" class="tab-content">
+            <h2>Projects & Activities</h2>
+            
+            <!-- Projects Section -->
+            <h3>Projects</h3>
+            <ul class="project-list">
+                <!-- 1st Project -->
+                <li>
+                    <strong>KT Alley Economy Project (OCT 2022 - JAN 2023):</strong> 
+                    Suggested solutions and strategies to help small business owners increase profits by analyzing various data sources.
+                    <ul>
+                        <li>Analyzed floating population, regional sales, and commercial districts using KT’s proprietary programs.</li>
+                        <li>Implemented Latent Dirichlet Allocation (LDA) to examine social media data from platforms like Instagram and Brunch.</li>
+                        <li>Provided actionable insights on holiday promotions, delivery services, and new menu categories based on data analysis results.</li>
+                    </ul>
+                </li>
+
+                <!-- 2nd Project -->
+                <li>
+                    <strong>Quality Error Prediction Analysis Model for Defect Prevention (JUL 2022 - DEC 2022):</strong> The preemptive detection of melting tank error
+                    <ul>
+                        <li>Researched on papers relevant to defects in the dissolution process and particle dissolution.</li>
+                        <li>Participated in data processing and visualization.</li>
+                        <li>Cooperated with utilize DNN to classification analysis with Tensorflow2 and GAN to predict future 
+                            data distribution.</li>
+                        <li>Prepared presentation materials and reports of the project. </li>
+                    </ul>
+                </li>
+
+                <!-- 3rd project -->
+                <li>
+                    <strong>Lpay Activation and Marketing Strategy Based on Machine Learning (MAY 2022 - AUG 2022):</strong> Development of Lpay customer activation by customized marketing strategies <br>
+                    depending on the characteristics of each customer group
+                    <ul>
+                        <li>Participated in data visualization and developing customer segmentation model by XGBoost 
+                            Classifier.</li>
+                        <li>Suggested marketing strategies and events based on the penchant of cohort. <br><br></li>
+                    </ul>
+                </li>
+            </ul>
+
+            
+            <!-- Hackathons Section -->
+            <h3>Hackathons</h3>
+            <ul class="hackathon-list">
+                <li>
+                    <strong>Oil Condition Classification of Construction Machinery (DEC 2022)</strong>
+                    <ul>
+                        <li>Public LB 24th, Private LB 81th out of 517 participants, ranked in the top 16%</li>
+                        <li>Technologies used: Data preprocessing, Utilized XGBClassifier</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>2022 Tourism Data AI Competition (OCT 2022)</strong>
+                    <ul>
+                        <li>Technologies used: Text augmentation wtih synonym replacement and sentence combining and splitting, CountVectorizer, TfidfVectorizer, BERT </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Travel Product Application Prediction (AUG 2022 - SEP 2022)</strong>
+                    <ul>
+                        <li>Public LB 74th, Private LB 38th out of 356 participants, ranked in the top 11%</li>
+                        <li>Technologies used: Data preprocessing, Created derived variables, Utilized Staking with XGBClassifier, CatBoostClassifier, LGBMClassifier</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>AI Competition for Predicting Antenna Performance of Self-Driving Sensors (AUG 2022) </strong>
+                    <ul>
+                        <li>Public LB 115th, Private LB 130th / 975, ranked in the top 13%</li>
+                        <li>Data preprocessing, Created derived variables, Utilized Staking with XGBRegressor, CatBoostRegressor, LGBMRegressor, Multioutput Classifier</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Forecasting Sales by Shopping Mall Branch (JUL 2022 - AUG 2022)</strong>
+                    <ul>
+                        <li>Public LB 73rd, Private LB 74th / 1198, ranked in the top 6% </li>
+                        <li>Data preprocessing, Created derived variables, Utilized CatBoostRegressor</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Population Data-Based Income Prediction (APR 04 - APR 2022)</strong>
+                    <ul>
+                        <li>Public LB 10th, Private LB 6th / 447, ranked in the top 3% </li>
+                        <li>Data preprocessing, Created derived variables, Utilized CatBoostClassifier<br><br></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Mathematics, Computer Science and Statistics-related classes Section -->
+            <h3>Mathematics and Statistics-related classes</h3>
+            <ul class="education-list">
+                <li><strong>Machine learning</strong>: Korea National Open University, 34478 (2024 Fall)<br>
+                    Core concepts in supervised and unsupervised learning, statistical principles, and model optimization</li>
+                <li><strong>Python Programming</strong>: Korea National Open University, 34174 (2024 Spring)<br>
+                    Introduction to core Python syntax, data structures, and problem-solving through functions and libraries </li>
+                <li><strong>Discrete Mathematics</strong>: Korea National Open University, 34256 (2024 Spring)<br>
+                    Logic and proofs, set theory, graph theory, combinatorics, and applications of discrete structures </li>
+                <li><strong>Software Engineering</strong>: Korea National Open University, 34519 (2024 Spring)<br>
+                    Principles of software development, design methodologies, testing, and project management for reliable and scalable systems </li>
+                <li><strong>Linear Algebra</strong>: Korea National Open University, 34353 (2023 Fall)<br>
+                    Fundamental concepts of vectors, matrices, linear transformations, and their applications in solving systems of equations</li>
+                <li><strong>C Programming</strong>: Korea National Open University, 34308 (2023 Spring)<br>
+                    Basics of C syntax, memory management, pointers, and efficient problem-solving with structured programming</li>
+                <li><strong>Articial Intelligence</strong>: Korea National Open University, 34524 (2023 Spring)<br>
+                    Basic concepts of calculus & sequence and series</li>
+                <br>
+                <li><strong>Natural Language Processing and Its Application for Social Science</strong>: Hanyang University, ECO9055 (2022 Fall)<br>
+                    Fundamental techniques for text preprocessing, feature extraction, machine learning, and deep learning approaches for text, including embeddings, RNNs, attention mechanisms, and transformer-based models like BERT</li>
+                <li><strong>Marketing Intelligence</strong>: Hanyang University, BUI6006 (2022 Spring)<br>
+                    Comprehensive models for regression, time series, diffusion, price response, and marketing dynamics, covering panel data, system equations, limited dependent variables, and causal inference methods</li>
+                <li><strong>Analytics Programming with R</strong>: Hanyang University, BUI6004 (2022 Spring)<br>
+                    Core techniques in data structures, preprocessing, exploratory analysis, and foundational models like linear regression and LDA </li>
+                <li><strong>Probability and Statistics</strong>: Hanyang University, COE8042 (2021 Fall)<br>
+                    Fundamentals of sampling and probability distributions, interval estimation, hypothesis testing, linear regression, experimental design, and multivariate analysis </li>
+                <li><strong>Business Decision Modeling & Analysis & Strategy</strong>: Hanyang University, BUI6014 (2021 Fall)<br>
+                    Key methods in utility theory, Bayesian inference, decision trees, linear programming, optimization, game theory, and simulation </li>
+                <br>
+                <li><strong>Database System</strong>: Myongji University, HAF01426 (2019 Spring)<br>
+                    Core principles of database design, SQL, normalization, and management of relational databases </li>
+                <li><strong>Data Literacy</strong>: Myongji University, HAF01427 (2018 Spring)<br>
+                    Exploratory Data Analysis with R, Sampling distribution including t-distribution, Significance Test, Linear Regression, Cluster analysis </li>
+                <li><strong>Network Analysis</strong>: Myongji University, HAF01429 (2017 Fall)<br>
+                    Study of network structures, graph theory applications, centrality measures, and community detection in complex networks </li>
+                <li><strong>Introduction to Data Programming</strong>: Myongji University, HAF01329 (2017 Fall)<br>
+                    Exploratory Data Analysis including correlation and plots, Data Structure, Data typical values and variability inference </li>
+                <li><strong>Web Programming & Web server construction</strong>: Myongji University, KMI02105 (2015 Fall)<br>
+                    Introduction to HTML, CSS for front-end design, and foundational server setup and management<br><br> </li>
+            </ul>
+
+            <!-- Additional Education Section -->
+            <h3>Additional Education</h3>
+            <ul class="education-list">
+                <li><strong>Calculus1: </strong> 
+                    <br>
+                    <img src="calculus1.png" alt="Course Image" style="width:400px; height:auto; margin-top:5px; margin-bottom:5px;">
+                    <br>
+                    Basic concepts of calculus & sequence and series</li>
+                <li><strong>Linear Algebra:</strong> 
+                    <br>
+                    <img src="linear algebra.png" alt="Course Image" style="width:400px; height:auto; margin-top:5px; margin-bottom:5px;">
+                    <br>
+                    Linear relationships and transformations in space using vectors and matrices </li>
+            </ul>
+        </div>
+
+        <!-- Extracurricular Activities Tab Content -->
+        <div id="extracurricular" class="tab-content">
+            <h2>Extracurricular Activities</h2>
+            
+            <h3>Undergraduate</h3>
+            <ul class="project-list">
+                <li>
+                    <strong>Startup Project Reborn (FEB 2016 - AUG 2017)</strong>
+                    <ul>
+                        <li>Planning and Producing Travel Content for Foreign Tourists especially backpackers</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Samsung Group University Student Supporters (FEB 2016 - AUG 2016)</strong>
+                    <ul>
+                        <li>Planning and Proposing Online Marketing Strategies for University Students</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Club Dreamforest (FEB 2015 - FEB 2016)</strong> 
+                    <ul>
+                        <li>Official Blog Administrator: Participated in creating promotional content for events and contributed to producing content for the official blog.</li>
+                        <li>Planning and managing events for university students and young adults.</li>
+                            <ul>
+                                <li>Software Event "A Day of Communicating with Software" Staff and Program Facilitator.</li>
+                                <li>Networking Event "Making Real Buddy in Korea" Staff and Program Facilitator.</li>
+                                <li>Motivational Talk "Wanderlust Cells" Staff and Program Facilitator.</li>
+                                <li>Workshop "A Day of Communicating with Software" Staff and Program Facilitator.</li>
+                            </ul>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Traditional Samulnori (Korean Percussion) Club (MAY 2014 - FEB 2016)</strong>
+                    <ul>
+                        <li>Club Leader (FEB 2015 - FEB 2016) </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Graduate</h3>
+            <ul class="project-list">
+                <li>
+                    <strong>Leader in Study Sessions in Business Inteligence and Strategy Lab (2022)</strong></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
